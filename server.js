@@ -16,6 +16,11 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const router = express.Router();
 
+app.use((req, res ,next) => {
+  console.log(req.method + " " + req.path + " " + req.ip);
+  next();
+});
+
 const enableCORS = function (req, res, next) {
   if (!process.env.DISABLE_XORIGIN) {
     const allowedOrigins = ["https://www.freecodecamp.org"];
