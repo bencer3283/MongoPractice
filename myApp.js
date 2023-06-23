@@ -44,7 +44,7 @@ const findPeopleByName = (personName, done) => {
 };
 
 const findOneByFood = (food, done) => {
-  Person.findOne({favoriteFoods: {$all: food}}).then(
+  Person.findOne({favoriteFoods: {$all: food}}).then( //or $in: ?
     (doc) => {
       done(null, doc);
     },
@@ -55,7 +55,14 @@ const findOneByFood = (food, done) => {
 };
 
 const findPersonById = (personId, done) => {
-  done(null /*, data*/);
+  Person.findById(personId).then(
+    (doc) => {
+      done(null, doc);
+    },
+    (err) => {
+      done(err);
+    }
+  );
 };
 
 const findEditThenSave = (personId, done) => {
