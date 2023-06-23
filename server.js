@@ -108,6 +108,7 @@ router.get("/create-and-save-person", function (req, res, next) {
       res.json(pers);
       pers.remove();
     });
+    console.log('Create success!')
   });
 });
 
