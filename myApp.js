@@ -44,7 +44,7 @@ const findPeopleByName = (personName, done) => {
 };
 
 const findOneByFood = (food, done) => {
-  Person.findOne({favoriteFoods: {food}}).then(
+  Person.findOne({favoriteFoods: {$all: food}}).then(
     (doc) => {
       done(null, doc);
     },
