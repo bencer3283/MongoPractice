@@ -11,7 +11,14 @@ const createAndSavePerson = (done) => {
     age: 18,
     favoriteFoods: ['chocolate', 'mango']
   });
-  amy.save(done);
+  amy.save().then(
+    (doc) => {
+      done(null, doc);
+    },
+    (err) => {
+      done(err);
+    }
+  )
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
