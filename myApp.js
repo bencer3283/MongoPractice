@@ -70,7 +70,10 @@ const findEditThenSave = (personId, done) => {
 
   Person.findById(personId).then(
     (doc) => {
-      doc._favoriteFoods.push(foodToAdd);
+      let fieldToEdit = ['string', ];
+      fieldToEdit = doc._favoriteFoods;
+      fieldToEdit.push(foodToAdd);
+      doc._favoriteFoods = fieldToEdit;
       doc.save().then(
         (doc) => {
           console.log(doc);
