@@ -144,8 +144,7 @@ const queryChain = (done) => {
       (err) => {
         done(err);
       }
-    )
-  done(null /*, data*/);
+    );
 };
 
 /** **Well Done !!**
