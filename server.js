@@ -171,7 +171,7 @@ router.post("/find-one-by-food", function (req, res, next) {
   let t = setTimeout(() => {
     next({ message: "timeout" });
   }, TIMEOUT);
-  console.log(req.header);
+  console.log(req.header, req.body);
   let p = new Person(req.body);
   p.save(function (err, pers) {
     if (err) {
